@@ -1,0 +1,28 @@
+AddDefaultCharset UTF-8
+FileETag none
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /
+
+RewriteRule ^([0-9\.]{1,})x\.jpg$ - [co=dpr_x:$1:%{HTTP_HOST}:3600:/]
+
+#######################
+# COOKIE REWRITE COND 
+#######################
+
+RewriteCond %{HTTP_COOKIE} dpr_x=([^;]+) [NC]
+# Passthroungh
+RewriteRule ^(.*)_w([0-9]+)\.(jpg|png)$ /$1_w$2_%1x.$3 [L,PT]
+# Phisical redirect
+# RewriteRule ^(.*)_w([0-9]+)\.(jpg|png)$ /$1_w$2_%1x.$3 [L,R] 
+
+########################
+# OTHER REQUESTS
+########################
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/assets/
+RewriteRule ^(.*)$	   /index.php [L,PT]
+</IfModule>
