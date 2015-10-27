@@ -2,6 +2,7 @@ AddDefaultCharset UTF-8
 FileETag none
 <IfModule mod_rewrite.c>
 Options +FollowSymlinks
+
 RewriteEngine on
 RewriteBase /
 
