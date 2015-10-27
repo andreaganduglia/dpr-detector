@@ -4,7 +4,7 @@
 	<title>DPR DETECTOR DEMO by Andrea Ganduglia</title>
 </head>
 <body>
-<img src="/1x.jpg" srcset="/2.0x.jpg 1x, /1.3x.jpg 1.3x, /1.5x.jpg 1.5x, /2.0x.jpg 2x, /3.0x.jpg 3x, /4.0x.jpg 4x" style="display:none"/>
+<img src="/1x.jpg" srcset="/1.0x.jpg 1x, /1.3x.jpg 1.3x, /1.5x.jpg 1.5x, /2.0x.jpg 2x, /3.0x.jpg 3x, /4.0x.jpg 4x" style="display:none"/>
 
 <div style="text-align:center">
 	<p>DPR:<?=$app->data['dpr_x']?> | Screen: <span id="screen"></span></p>
